@@ -138,6 +138,67 @@ footer a:hover{color:var(--cog2)}
 .lb-cap h3{font-size:34px}.lb-cap small{font-size:11px;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
 .lb-cap .btn{padding:14px 30px;font-size:11px}
 @media (max-width:700px){.lb-p,.lb-n{top:auto;bottom:4vh;margin:0}.lb-p{left:5vw}.lb-n{right:5vw}.lb-cap{bottom:13vh}}
+
+.burger{display:none;background:none;border:0;width:44px;height:44px;position:relative;z-index:61;color:inherit}
+.burger i{position:absolute;left:10px;right:10px;height:1.5px;background:var(--ink);transition:transform .45s cubic-bezier(.2,.8,.2,1),top .45s}
+.burger i:nth-child(1){top:17px}.burger i:nth-child(2){top:26px}
+.menu-open .burger i:nth-child(1){top:21px;transform:rotate(45deg)}.menu-open .burger i:nth-child(2){top:21px;transform:rotate(-45deg)}
+@media (max-width:900px){
+ .burger{display:block}
+ header{padding:14px 5vw 30px}
+ .logo{font-size:22px;position:relative;z-index:61}
+ nav{display:flex;position:fixed;inset:0;z-index:60;background:rgba(13,11,9,.97);flex-direction:column;justify-content:center;align-items:flex-start;padding:0 8vw;gap:6px;opacity:0;pointer-events:none;transition:opacity .45s}
+ .menu-open nav{opacity:1;pointer-events:auto}
+ nav a{font-family:var(--serif);font-size:44px;letter-spacing:0;text-transform:none;line-height:1.25;transform:translateY(24px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+ .menu-open nav a{transform:none;opacity:1}
+ .menu-open nav a:nth-child(2){transition-delay:.06s}.menu-open nav a:nth-child(3){transition-delay:.12s}.menu-open nav a:nth-child(4){transition-delay:.18s}.menu-open nav a:nth-child(5){transition-delay:.24s}
+ nav a:after{display:none}
+ section{padding:9vh 6vw}
+ .hero{min-height:0;padding-top:13vh;gap:36px}
+ .scroll-cue{display:none}
+ .hero p.lead{font-size:16px;margin:24px 0 30px}
+ .btns{flex-direction:column;gap:12px}.btns .btn{width:100%;justify-content:center;padding:18px 20px}
+ .hero-vis{height:62vh;max-height:520px}
+ .head{margin-bottom:5vh;gap:16px}
+ .head p{font-size:15px}
+ h2{font-size:clamp(38px,11vw,56px)}
+ .about{gap:30px}.about p{font-size:16px;margin-top:20px}
+ .stats{margin-top:34px;gap:12px}.stats b{font-size:44px}.stats span{font-size:10px}
+ .grid{grid-template-columns:1fr 1fr;gap:14px}
+ .card:nth-child(even){margin-top:28px}
+ .card .in,.card h3{transform:none!important}
+ .card h3{font-size:24px;margin-top:12px}
+ .card .meta{flex-direction:column;gap:4px;font-size:10px}
+ .track{gap:12px;padding-inline:6vw}
+ .track .it{flex-basis:68vw}.track .it:nth-child(even){margin-top:36px}
+ .gal .head{padding-inline:6vw}
+ .steps{grid-template-columns:1fr 1fr}
+ .step,.step:first-child{padding:26px 14px 26px 0;border-right:0;border-bottom:1px solid var(--line)}
+ .step:nth-child(even){padding-left:14px;border-left:1px solid var(--line)}
+ .step .n{font-size:56px}.step h3{font-size:24px;margin:12px 0 8px}.step p{font-size:14px}
+ .cta{padding:12vh 6vw}.cta h2{font-size:clamp(40px,12vw,64px)}.cta p{font-size:16px;margin-bottom:32px}
+ footer{padding:28px 6vw;flex-direction:column;gap:12px}
+}
+@media (max-width:520px){.grid{grid-template-columns:1fr 1fr}.card:nth-child(even){margin-top:28px}.steps{grid-template-columns:1fr 1fr}.step:nth-child(even){border-left:1px solid var(--line);padding-left:14px}.step{border-right:0}}
+section{scroll-margin-top:50px}
+
+.reel{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;overflow:hidden}
+.reel p{color:var(--mute);font-size:17px;max-width:460px;margin-top:28px}
+.chips{list-style:none;display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.chips li{border:1px solid var(--line);padding:10px 18px;border-radius:99px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cog2);transition:background .4s,color .4s,border-color .4s}
+.chips li:hover{background:var(--cog2);color:#120d09;border-color:var(--cog2)}
+.reel-vis{position:relative;display:grid;place-items:center;perspective:1100px;padding:30px 0}
+.ring{position:absolute;width:min(480px,90%);aspect-ratio:1;border-radius:50%;border:1px solid rgba(224,164,107,.25);animation:ringp 7s ease-in-out infinite;pointer-events:none}
+.ring:before{content:"";position:absolute;inset:-36px;border-radius:50%;border:1px dashed rgba(224,164,107,.18);animation:rot 40s linear infinite}
+@keyframes ringp{50%{transform:scale(1.06);border-color:rgba(224,164,107,.5)}}
+@keyframes rot{to{transform:rotate(360deg)}}
+.phone{position:relative;width:min(340px,74vw);aspect-ratio:9/16;border-radius:34px;overflow:hidden;border:1px solid rgba(224,164,107,.55);background:#0d0b09;box-shadow:0 50px 100px rgba(0,0,0,.65),0 0 90px rgba(185,115,58,.22);transform-style:preserve-3d;transition:transform .25s ease-out;z-index:2}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.phone-shine{position:absolute;inset:0;pointer-events:none;background:radial-gradient(320px circle at var(--sx,30%) var(--sy,20%),rgba(255,230,200,.2),transparent 60%);mix-blend-mode:screen}
+.vol{position:absolute;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(241,232,220,.5);background:rgba(13,11,9,.55);backdrop-filter:blur(6px);display:grid;place-items:center;color:var(--ink)}
+.vol span{width:12px;height:14px;border-left:4px solid currentColor;border-right:4px solid currentColor}
+.vol.paused span{width:0;height:0;border:0;border-left:13px solid currentColor;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+@media (max-width:900px){.reel{grid-template-columns:1fr;gap:30px}.reel p{font-size:16px}.chips li{font-size:10px;padding:9px 14px}}
 </style>
 </head>
 <body>
@@ -148,7 +209,8 @@ footer a:hover{color:var(--cog2)}
 
 <header>
   <a href="#top" class="logo">DRESOV</a>
-  <nav><a href="#about">О бренде</a><a href="#collection">Коллекция</a><a href="#gallery">Образы</a><a href="#process">Заказ</a><a href="#contact">Контакты</a></nav>
+  <button class="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i></button>
+  <nav id="nav"><a href="#about">О бренде</a><a href="#collection">Коллекция</a><a href="#gallery">Образы</a><a href="#process">Заказ</a><a href="#contact">Контакты</a></nav>
 </header>
 
 <main id="top">
@@ -182,6 +244,23 @@ footer a:hover{color:var(--cog2)}
       <div><b data-n="1">0</b><span>изделие —<br>один мастер</span></div>
       <div><b data-n="∞">∞</b><span>вариантов<br>под заказ</span></div>
     </div>
+  </div>
+</section>
+
+<section id="reel" class="reel">
+  <div class="reel-txt rv">
+    <div class="eyebrow">В движении</div>
+    <h2>Кожа, которая<br><em>живёт</em></h2>
+    <p>Фактура, строчка, фурнитура. Всё, что делает барсетку DRESOV вещью на годы, лучше видно в движении.</p>
+    <ul class="chips"><li>Натуральная кожа</li><li>Ручная строчка</li><li>Под ваш заказ</li></ul>
+  </div>
+  <div class="reel-vis rv">
+    <div class="phone" id="phone">
+      <video id="reelv" muted loop playsinline preload="metadata" poster="media/poster.jpg"><source src="media/dresov-reel.mp4" type="video/mp4"></video>
+      <div class="phone-shine"></div>
+      <button class="vol" id="pp" aria-label="Пауза"><span></span></button>
+    </div>
+    <div class="ring"></div>
   </div>
 </section>
 
@@ -242,7 +321,7 @@ const lb=document.getElementById('lb'),lbi=lb.querySelector('.lb-img'),cap=lb.qu
 let cur=-1,anim=false;
 const thumb=i=>items[i].querySelector('img');
 const rectOf=el=>{const r=el.getBoundingClientRect();return{l:r.left,t:r.top,w:r.width,h:r.height}};
-const fit=im=>{const cr=thumb(cur).classList.contains('crop');lbi.style.objectPosition=cr?'50% 100%':'50% 50%';const nw=im.naturalWidth||3,nh=(im.naturalHeight||4)*(cr?.76:1),k=Math.min(innerWidth*.88/nw,innerHeight*.72/nh);const w=nw*k,h=nh*k;return{l:(innerWidth-w)/2,t:(innerHeight-h)/2-innerHeight*.03,w,h}};
+const fit=im=>{const cr=thumb(cur).classList.contains('crop');lbi.style.objectPosition=cr?'50% 100%':'50% 50%';const nw=im.naturalWidth||3,nh=(im.naturalHeight||4)*(cr?.76:1),mob=innerWidth<700,k=Math.min(innerWidth*(mob?.92:.88)/nw,innerHeight*(mob?.55:.72)/nh);const w=nw*k,h=nh*k;return{l:(innerWidth-w)/2,t:mob?Math.max(innerHeight*.1,(innerHeight*.72-h)/2):(innerHeight-h)/2-innerHeight*.03,w,h}};
 const put=r=>{lbi.style.left=r.l+'px';lbi.style.top=r.t+'px';lbi.style.width=r.w+'px';lbi.style.height=r.h+'px'};
 const fill=i=>{const el=items[i],a=el.matches('a')?el:null,t=el.querySelector('h3');lbi.src=thumb(i).src;ct.textContent=t?t.textContent:'';cs.textContent=String(i+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0');if(a){cb.href=a.href;cb.style.display='inline-flex'}else cb.style.display='none'};
 function open(i){if(anim)return;anim=true;cur=i;const th=thumb(i);fill(i);lb.classList.add('open');lbi.classList.add('nt');lbi.style.opacity=1;put(rectOf(th));lbi.getBoundingClientRect();th.style.visibility='hidden';lbi.classList.remove('nt');
@@ -258,6 +337,16 @@ lbi.addEventListener('click',close);
 addEventListener('keydown',e=>{if(cur<0)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
 addEventListener('resize',()=>{if(cur>=0&&!anim){lbi.classList.add('nt');put(fit(lbi))}});
 
+/* ---------- reel ---------- */
+const rv=document.getElementById('reelv'),pp=document.getElementById('pp'),ph=document.getElementById('phone');
+if(rv){let user=false;
+ const vio=new IntersectionObserver(es=>es.forEach(e=>{if(user)return;e.isIntersecting?rv.play().catch(()=>{}):rv.pause()}),{threshold:.35});vio.observe(rv);
+ pp.addEventListener('click',()=>{if(rv.paused){user=false;rv.play().catch(()=>{});pp.classList.remove('paused')}else{user=true;rv.pause();pp.classList.add('paused')}});
+ if(fine&&!reduce){ph.addEventListener('mousemove',e=>{const r=ph.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;ph.style.transform=`rotateY(${(x-.5)*16}deg) rotateX(${(.5-y)*16}deg) scale(1.02)`;ph.style.setProperty('--sx',x*100+'%');ph.style.setProperty('--sy',y*100+'%')});ph.addEventListener('mouseleave',()=>ph.style.transform='')}
+}
+const bg=document.querySelector('.burger'),hd=document.querySelector('header');
+const tgl=f=>{const o=f??!hd.classList.contains('menu-open');hd.classList.toggle('menu-open',o);bg.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+bg.addEventListener('click',()=>tgl());document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>tgl(false)));
 if(!fine||reduce)return;
 /* ---------- cursor: one black macOS-style arrow ---------- */
 const cu={classList:{add(){},remove(){}},style:{}},tag=document.querySelector('.cur-tag'),spot=document.getElementById('spot');
